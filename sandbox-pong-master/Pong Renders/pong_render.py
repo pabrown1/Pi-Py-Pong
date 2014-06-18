@@ -76,7 +76,7 @@ def read_pong_settings():
 
 if __name__ == '__main__':
     pygame.init()
-    screen = pygame.display.set_mode( (1920,1200) )
+    screen = pygame.display.set_mode( (1920,1080) )
     ball = pygame.image.load( 'assets/ball.png' ).convert()
     ballrect = ball.get_rect()
     read_pong_settings()
