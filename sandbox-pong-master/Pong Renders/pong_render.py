@@ -1,4 +1,5 @@
 import pygame
+import pygame
 import sys
 import SocketServer, struct, threading
 
@@ -40,6 +41,11 @@ class requestHandler(SocketServer.StreamRequestHandler):
             if edge_node:
                 if ( pos[paddle_index] > boundsy[0] - french_effect and 
                         pos[paddle_index] < boundsy[1] + french_effect  ):
+                    paddle_rect.y = pos[paddle_index] - boundsy[0]
+                    screen.blit( paddle, paddle_rect )
+			else:
+				if ( pos[paddle_index] > boundsy[0] - french_effect and 
+						pos[paddle_index] < boundsy[1] + french_effect  ):
                     paddle_rect.y = pos[paddle_index] - boundsy[0]
                     screen.blit( paddle, paddle_rect )
             pygame.display.flip()
