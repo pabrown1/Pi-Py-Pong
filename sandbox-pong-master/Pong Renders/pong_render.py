@@ -43,11 +43,6 @@ class requestHandler(SocketServer.StreamRequestHandler):
                         pos[paddle_index] < boundsy[1] + french_effect  ):
                     paddle_rect.y = pos[paddle_index] - boundsy[0]
                     screen.blit( paddle, paddle_rect )
-			else:
-				if ( pos[paddle_index] > boundsy[0] - french_effect and 
-						pos[paddle_index] < boundsy[1] + french_effect  ):
-                    paddle_rect.y = pos[paddle_index] - boundsy[0]
-                    screen.blit( paddle, paddle_rect )
             pygame.display.flip()
             try:
                 self.request.send( 'Got it' )
@@ -102,7 +97,12 @@ if __name__ == '__main__':
         edge_node = True #will signal to update paddle as well
         paddle_index = 2
     else:
-        edge_node = False
+	    paddle = pygame.image.load( 'assets/blank.png' ).convert() # added to correct error with non-edge nodes
+        paddle_rect = paddle.get_rect()
+        paddle_rect.x = 84
+        edge_node = True
+		paddle_index = 2
+
     server=broadcastServer( ( ip_address, 20000 ), requestHandler )
     server.serve_forever()
 
