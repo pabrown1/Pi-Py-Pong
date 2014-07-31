@@ -1,5 +1,4 @@
 import pygame
-import pygame
 import sys
 import SocketServer, struct, threading
 
