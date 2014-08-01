@@ -96,7 +96,7 @@ if __name__ == '__main__':
         edge_node = True #will signal to update paddle as well
         paddle_index = 2
     else:
-	    paddle = pygame.image.load( 'assets/blank.png' ).convert() # added to correct error with non-edge nodes
+	paddle = pygame.image.load( 'assets/blank.png' ).convert() # added to correct error with non-edge nodes
         paddle_rect = paddle.get_rect()
         paddle_rect.x = 84
         edge_node = True
