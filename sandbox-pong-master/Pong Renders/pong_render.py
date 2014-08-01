@@ -97,6 +97,7 @@ if __name__ == '__main__':
         paddle_index = 2
     else:
 	    paddle = pygame.image.load( 'assets/blank.png' ).convert() # added to correct error with non-edge nodes
+		paddle.image.convert_alpha() # to make image transparent
         paddle_rect = paddle.get_rect()
         paddle_rect.x = 84
         edge_node = True
